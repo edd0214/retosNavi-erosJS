@@ -11,19 +11,21 @@ por lo que debes invertir los caracteres en el orden correcto.
 */
 
 function decode(message) {
-    let inicio = message.lastIndexOf("(");
-    let end =  message.indexOf(")", inicio);
+    let inicio;
+    let end;
        
     while (inicio !== -1 || end !== -1) {
+       inicio= message.lastIndexOf("(");
+       end= message.indexOf(")", inicio);
+       
+       const stringInvertido = message.substring(inicio, end+1);
+       console.log(stringInvertido);
 
-        const stringInvertido = message.substring(inicio, end+1);
-        console.log(stringInvertido);
-
-        const stringRevertido = stringInvertido.split("").slice(1,-1).reverse().join("") ;
-        console.log(stringRevertido);
+       const stringRevertido = stringInvertido.split("").slice(1,-1).reverse().join("") ;
+       console.log(stringRevertido);
         
-        message = message.replace(stringInvertido, stringRevertido);
-        break;
+       message = message.replace(stringInvertido, stringRevertido);
+        
     }
     return message;
 }
