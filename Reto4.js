@@ -19,11 +19,9 @@ function decode(message) {
        end= message.indexOf(")", inicio);
        
        const stringInvertido = message.substring(inicio, end+1);
-       console.log(stringInvertido);
-
+       
        const stringRevertido = stringInvertido.split("").slice(1,-1).reverse().join("") ;
-       console.log(stringRevertido);
-        
+               
        message = message.replace(stringInvertido, stringRevertido);
         
     }
@@ -44,25 +42,20 @@ console.log(c)
 
 
 
-// function decode(message) {
-//     let inicio;
-//     let end;
+function decode(message) {
+    let inicio;
+    let end;
        
-//     while (inicio !== -1 || end !== -1) {
+    while (inicio !== -1 || end !== -1) {
 
-//         inicio = message.lastIndexOf("(");
-//         end =  message.indexOf(")", inicio);
+        inicio = message.lastIndexOf("(");
+        end =  message.indexOf(")", inicio);
 
-
-
-//         const stringInvertido = message.substring(inicio, end+1);
-//         console.log(stringInvertido);
-
-//         const stringRevertido = stringInvertido.split("").slice(1,-1).reverse().join("") ;
-//         console.log(stringRevertido);
+        const stringInvertido = message.substring(inicio, end+1);
         
-//         message = message.replace(stringInvertido, stringRevertido);
-        
-//     }
-//     return message;
-// }
+        const stringRevertido = stringInvertido.split("").slice(1,-1).reverse().join("") ;
+                
+        message = message.replace(stringInvertido, stringRevertido);        
+    }
+    return message;
+}
